@@ -1,0 +1,477 @@
+@font-face {
+    font-family: creation;
+    src: url(Creattion\ Demo.otf);
+}
+
+@font-face {
+    font-family: integral;
+    src: url(Fontspring-DEMO-integralcf-medium.otf);
+}
+
+@font-face {
+    font-family: nikea;
+    src: url(NIKEA.otf);
+}
+
+@font-face {
+    font-family: disket;
+    src: url(Disket-Mono-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.circle {
+    position: fixed;
+    pointer-events: none;
+    width: 40px;
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 50ms ease;
+    mix-blend-mode: difference;
+    /* Use mix-blend-mode to invert colors */
+}
+
+
+/* .eye-container {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.eye {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 25px;
+    width: 25px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+
+}
+
+.pupil {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+} */
+
+.side-nav {
+    height: 400vh;
+    width: 20vw;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(0deg, transparent 1px, rgb(0, 0, 0) 1px, rgb(0, 0, 0) 10px, transparent 100px),
+        linear-gradient(90deg, transparent 1px, rgb(0, 0, 0) 1px, rgb(0, 0, 0) 10px, transparent 100px);
+    background-size: 10px 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.678);
+}
+
+.texts-bar {
+    color: rgba(255, 253, 250, 0.658);
+    font-size: 5vh;
+    margin: 10px;
+    position: fixed;
+    top: 40vh;
+    left: 0;
+
+}
+
+.text {
+    font-family: disket;
+    letter-spacing: 2px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.underline {
+    text-decoration: underline;
+    color: rgb(255, 253, 250);
+    transform: translate(20px, 0px);
+}
+
+/* Style for the back-to-top button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    display: none;
+    background-color: #1d1d1d;
+    color: #fff;
+    padding: 7px;
+    cursor: pointer;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    z-index: 999;
+    /* Add this line */
+    transition: all 0.1s ease;
+}
+
+.signature {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    font-family: creation;
+    font-weight: 100;
+    font-size: 100px;
+    color: #fff;
+    transform: rotate(-30deg);
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    z-index: 2;
+    perspective: 800px;
+    cursor: pointer;
+    /* Added perspective property */
+}
+
+.signature::before {
+    content: attr(data-content);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) scale(2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.signature:hover {
+    transform: rotate(-20deg) rotateX(-50deg) scale(1.1);
+    /* Added scale property for a popup effect */
+}
+
+.signature:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2);
+}
+
+.varient {
+    text-shadow: 0px 0px 10px rgb(0, 183, 255);
+}
+
+.back-to-top:hover {
+    opacity: 0.8;
+}
+
+.home-btn:hover {
+    transform: translate(20px, 0px);
+    color: rgb(255, 253, 250);
+}
+
+.projects-btn:hover {
+    transform: translate(20px, 0px);
+    color: rgb(255, 253, 250);
+}
+
+.contact-btn:hover {
+    transform: translate(20px, 0px);
+    color: rgb(255, 253, 250);
+}
+
+.about-btn:hover {
+    transform: translate(20px, 0px);
+    color: rgb(255, 253, 250);
+}
+
+.background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0vw;
+    z-index: -999;
+    --color: rgba(158, 195, 216, 0.342);
+    background-color: #000000;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+    background-size: 55px 55px;
+}
+
+.invert-colors {
+    filter: invert(1);
+}
+
+#toggleButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px;
+    font-family: 'disket';
+    /* Assuming 'disket' is a valid font-family name */
+    color: #000000;
+    background-color: #ffffff;
+    /* Add a background color to make the button visible */
+    border: none;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.pop {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 0px;
+    font-family: 'disket';
+    background-color: #ffffff;
+    font-size: 2px;
+    border-radius: 5px 0px 5px 5px;
+    display: none;
+    pointer-events: none;
+}
+
+#toggleButton:hover+.pop {
+    display: inline;
+}
+
+.header-home {
+    font-family: integral;
+    font-weight: 60;
+    position: absolute;
+    top: 0vh;
+    left: 22vw;
+    color: #ffffff;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+.underline1 {
+    height: 2px;
+    width: 250px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 15vh;
+    left: 22vw;
+    transition: all 0.3s ease;
+    animation-name: underline;
+    animation-iteration-count: infinite;
+    animation-duration: 0.5s;
+}
+
+/* @keyframes underline {
+    0% {
+        width: 0vw;
+    }
+    20% {
+        width: 10vh;
+    }
+    50% {
+        left: 25vw;
+        width: 10vw;
+    }
+    100% {
+        left: 41vw;
+        width: 0px;
+    }
+} */
+.header-home:hover+.underline1 {
+    transform: translate(0%, 200%);
+}
+
+.header-projects:hover+.underline2 {
+    transform: translate(0%, 200%);
+}
+
+.header-contact:hover+.underline3 {
+    transform: translate(0%, 200%);
+}
+
+.header-about:hover+.underline4 {
+    transform: translate(0%, 200%);
+}
+
+.header-projects {
+    font-family: integral;
+    font-weight: 60;
+    position: absolute;
+    top: 100vh;
+    left: 22vw;
+    color: #ffffff;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+.underline2 {
+    height: 2px;
+    width: 470px;
+    background-color: #fff;
+    position: absolute;
+    top: 115vh;
+    left: 22vw;
+    transition: all 0.2s ease;
+}
+
+.header-contact {
+    font-family: integral;
+    font-weight: 60;
+    position: absolute;
+    top: 200vh;
+    left: 22vw;
+    color: #fff;
+    font-size: 80px;
+    cursor: pointer;
+
+}
+
+.underline3 {
+    height: 2px;
+    width: 470px;
+    background-color: #fff;
+    position: absolute;
+    top: 215vh;
+    left: 22vw;
+    transition: all 0.2s ease;
+}
+
+.header-about {
+    font-family: integral;
+    font-weight: 60;
+    position: absolute;
+    top: 300vh;
+    left: 22vw;
+    color: #fff;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+.underline4 {
+    height: 2px;
+    width: 310px;
+    background-color: #fff;
+    position: absolute;
+    top: 315vh;
+    left: 22vw;
+    transition: all 0.2s ease;
+}
+
+.home-image {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    top: 20vh;
+    right: 5vw;
+    filter: drop-shadow(0px 0px 10px white);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    border-radius: 25px;
+    transition: transform 0.3s ease-out;
+}
+
+.coding-int {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    filter: blur(1px) brightness(0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.coding-int:hover {
+    filter: blur(0px);
+    height: 110%;
+    width: 110%;
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    font-family: disket;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    /* Initially hidden */
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+.hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    font-family: disket;
+    font-size: 16px;
+    color: #fff;
+    opacity: 1;
+    /* Initially hidden */
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+.coding-int:hover~.hover-text {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.coding-int:hover~.hover {
+    opacity: 0;
+    transform: translate(-50%, -0%);
+    /* Make the text visible when .coding-int is hovered */
+}
+
+.maintext {
+    height: 100px;
+    width: 100px;
+}
+
+.main-text {
+    position: absolute;
+    top: 30%;
+    left: 23%;
+    font-family: disket;
+    font-size: 1px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.bar {
+    position: absolute;
+    top: 80%;
+    left: 23%;
+    height: 2px;
+    width: 500px;
+}
+
+.bar-in {
+    background-color: #fff;
+    height: 100%;
+    width: 10px;
+    top: 80%;
+    left: 23%;
+}
+
+#parent {
+    width: 500px;
+    height: 2px;
+    position: absolute;
+    top: 80%;
+    left: 23%;
+}
+
+#bar {
+    width: 10px;
+    height: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s ease;
+}
